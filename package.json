@@ -1,0 +1,14 @@
+{
+  "name": "clone_all",
+  "version": "1.0.0",
+  "description": "clone all github repos . tecno 2020 . wael.had.sy@gmail.com",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": " tecno 2020 . wael.had.sy@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "shelljs": "^0.8.4"
+  }
+}
