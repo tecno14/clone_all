@@ -1,2 +1,2 @@
 # CloneRepo
- Clone All User Repo Github
+ Clone All User Repositories from Github
