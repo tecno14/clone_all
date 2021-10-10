@@ -3,6 +3,12 @@
 
  `using only username`
 
+## Installation
+```
+npm install @wael14/github_clone_all
+```
+
+## Usage
 ```
 const clone_all = require('./github_clone_all');
 
@@ -14,7 +20,3 @@ you can put this two line in `file.js` then run it:
 node file.js
 ```
 
-##Installation
-```
-npm install @wael14/github_clone_all
-```
