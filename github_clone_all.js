@@ -1,44 +1,41 @@
+
 //  clone all github user repos
 //  TECNO 2020 wael.had.sy@gmail.com
 
 //  --------------------------------
 
-//  ToDo
-
-//  --------------------------------
-
 //  How its work
 //  1- get user repos from github api
-//  2- clone each one
+//  2- clone each one in loop
 
 //  --------------------------------
 
 const https = require('https');
 const shell = require('shelljs');
 
-module.exports.clone_all = function(username) {
+module.exports.username_clone_all = function(username) {
     if(username)
-      clone_all(username);
+        username_clone_all(username);
     else
-      console.log("'username' required !!");
+        console.log("'username' required !!");
+    
     return;
 }
 
-function clone_all(username) {
+function username_clone_all(username) {
+
+    console.log(`will clone all "${username}" repos ... enjoy`);
 
     var options = {
         hostname: "api.github.com",
         port: 443, //https
-        path: "/users/" + username + "/repos?per_page=9999",
+        path: `/users/${username}/repos?per_page=9999`,
         method: 'GET',
         headers: {
             'content-type': 'application/json',
             'User-Agent': 'Mozilla/5.0'
         }
     };
-
-    console.log(username);
-
     //change to http for local testing
     var req = https.get(options, function(res) {
         res.setEncoding('utf8');
@@ -52,23 +49,24 @@ function clone_all(username) {
         res.on('end', function() {
 
             repos = JSON.parse(body);
-            console.log(repos.length + ' repo found !!');
+            console.log(`  (${repos.length}) repos found !!`);
 
+            //create user folder
             shell.mkdir(username);
-            shell.cd(username)
 
             for (var i = 0; i < repos.length; i++) {
                 console.log((i + 1) + '- ' + repos[i].name);
-                shell.exec('git clone ' + repos[i].clone_url);
+                shell.exec(`git clone ${repos[i].clone_url} ./${username}/${repos[i].name}`);
+                console.log(repos[i].name + ' done');
                 console.log('--------------');
             }
 
+            console.log('Done !!!!');
+
             if (res.statusCode != 200) {
-                //callback("Api call failed with response code " + res.statusCode);
                 console.log("Api call failed with response code " + res.statusCode);
                 return;
             } else {
-                //callback(null);
                 return;
             }
         });
@@ -80,8 +78,5 @@ function clone_all(username) {
         callback(e);
     });
 
-    // write data to request body
-    //req.write(post_data);
     req.end();
-
 }

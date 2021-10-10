@@ -1,14 +1,28 @@
 {
-  "name": "clone_all",
+  "name": "@wael14/github_clone_all",
   "version": "1.0.0",
   "description": "clone all github repos . tecno 2020 . wael.had.sy@gmail.com",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": " tecno 2020 . wael.had.sy@gmail.com",
+  "author": "tecno 2021 . wael.had.sy@gmail.com",
   "license": "ISC",
   "dependencies": {
+    "@wael14/github_clone_all": "^1.0.0",
     "shelljs": "^0.8.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tecno14/clone_all.git"
+  },
+  "keywords": [
+    "github",
+    "clone",
+    "repositories"
+  ],
+  "bugs": {
+    "url": "https://github.com/tecno14/clone_all/issues"
+  },
+  "homepage": "https://github.com/tecno14/clone_all#readme"
 }
