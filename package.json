@@ -1,6 +1,6 @@
 {
   "name": "@wael14/github_clone_all",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "clone all github repos . tecno 2020 . wael.had.sy@gmail.com",
   "main": "app.js",
   "scripts": {
